@@ -1,20 +1,23 @@
 @use '@/values';
 
 .left-menu {
-    width: 250px;
-    max-width: 210px;
-    background-color: values.$panelBackground;
-    padding: 10px 15px;
+  width: 250px;
+  max-width: 210px;
+  background-color: values.$panelBackground;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  &__content {
+    flex-grow: 1;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    margin-bottom: 20px;
+  }
 
-    &__top {
-      flex-grow: 1;
-      overflow-y: auto;
-    }
-  
-    &__bottom {
-      flex-shrink: 0;
-    }
+  &__footer {
+    flex-shrink: 0;
+  }
 }

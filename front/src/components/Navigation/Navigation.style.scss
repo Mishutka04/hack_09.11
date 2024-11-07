@@ -1,8 +1,27 @@
 .nav-menu {
     display: flex;
-    list-style-type: none;
     flex-direction: column;
+    height: 100%;
     padding: 0;
-    gap: 10px;
     margin-top: 20px;
-}
+    z-index: 1;
+  
+    &__top {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+  
+    hr {
+      margin: 10px 0;
+    }
+  
+    &__bottom {
+      flex-grow: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+  }

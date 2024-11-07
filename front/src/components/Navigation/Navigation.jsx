@@ -7,20 +7,24 @@ import { RecentChats } from './RecentChats/RecentChats';
 
 export const Navigation = () => {
   return (
-    <ul className="nav-menu">
+    <nav className="nav-menu">
+      <div className="nav-menu__top">
         <NewChat />
         <RedirectBlock 
-            link={'/tables'}
-            img={tablesIcon}
-            text={'Таблицы'}
+          link={'/tables'}
+          img={tablesIcon}
+          text={'Таблицы'}
         />
         <RedirectBlock 
-            link={'/add-material'}
-            img={folderPlus}
-            text={'Добавить материал'}
+          link={'/add-material'}
+          img={folderPlus}
+          text={'Добавить материал'}
         />
-        <hr />
+      </div>
+      <hr />
+      <div className="nav-menu__bottom">
         <RecentChats />
-    </ul>
+      </div>
+    </nav>
   )
 }
