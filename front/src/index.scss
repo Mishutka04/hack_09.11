@@ -1,0 +1,12 @@
+@use '@/values';
+@use './typography/Apercu\ Pro/stylesheet.scss';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    color: values.$fontColor;
+    font-family: 'Apercu Pro';
+}

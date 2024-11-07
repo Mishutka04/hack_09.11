@@ -1,0 +1,19 @@
+.chat-bot {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.chat-bot__header {
+    width: 100%;
+    background-color: #fff;
+    height: 30px;
+}
+
+.chat-bot__header-text {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+}

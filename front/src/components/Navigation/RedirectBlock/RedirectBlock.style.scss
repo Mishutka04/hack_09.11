@@ -1,0 +1,25 @@
+@use '@/values';
+
+.nav__redirect-block {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    transition: all .2s linear;
+    padding: 10px 0;
+    cursor: pointer;
+
+    &__text {
+        margin-left: 10px;
+        font-size: 14px;
+    }
+}
+
+.nav__redirect-block:hover {
+    background-color: values.$newChatBorder;
+}
+
+.nav__redirect-block__img {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}

@@ -1,0 +1,20 @@
+.all-tables__pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.all-tables__pagination__buttons {
+    display: flex;
+    gap: 30px;
+}
+
+.all-tables__pagination__button {
+    display: flex;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: black;
+    cursor: pointer;
+    user-select: none;
+}
+

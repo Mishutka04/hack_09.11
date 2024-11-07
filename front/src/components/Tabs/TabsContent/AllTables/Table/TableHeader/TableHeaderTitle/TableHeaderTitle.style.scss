@@ -1,0 +1,16 @@
+@use '../TableHeader.style.scss';
+
+.all-tables__table {
+    &__header {
+        &__title {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            border-right: 1px solid #e0e6ed;
+      
+            &:last-child {
+              border-right: none;
+            }
+        }
+    }
+}

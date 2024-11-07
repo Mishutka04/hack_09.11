@@ -1,0 +1,28 @@
+@use '@/values';
+
+.add-material {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background: values.$mainBackground;
+
+    &__about {
+        width: 35%;
+        height: 90%;
+        padding: 10px 30px;
+        border-radius: 20px;
+        background-color: values.$panelBackground;
+
+        &__subtitle {
+
+        }
+
+        &__text {
+            font-size: 18px;
+            margin-top: 30px;
+        }
+    }
+}

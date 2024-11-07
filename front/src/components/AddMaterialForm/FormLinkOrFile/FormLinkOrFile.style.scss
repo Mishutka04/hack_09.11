@@ -1,0 +1,34 @@
+.add-material {
+    &__form {
+        &__link-or-file {
+            margin-top: 20px;
+
+            &__title {
+                font-size: 18px;
+            }
+
+            &__options {
+                margin-top: 10px;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: space-between;
+                width: 50%;
+                background-color: black;
+                border-radius: 20px;
+                padding: 10px 20px;
+            }
+
+            &__option {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 45%;
+                background-color: antiquewhite;
+                border-radius: 20px;
+                color: black;
+                padding: 5px 10px;
+                cursor: pointer;
+            }
+        }
+    }
+}

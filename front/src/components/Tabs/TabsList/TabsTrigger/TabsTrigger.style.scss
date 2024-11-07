@@ -1,0 +1,17 @@
+@use '@/values';
+
+.tabs__list__trigger {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: values.$newChatBorder;
+    transition: all .2s linear;
+    cursor: pointer;
+}
+
+.tabs__list__trigger:hover {
+    background-color: #000;
+}
+
+.active-tab {
+    background-color: #000;
+}

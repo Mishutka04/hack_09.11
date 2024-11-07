@@ -1,0 +1,24 @@
+.add-material {
+    &__form { 
+        &__description {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        &__textarea {
+            resize: none;
+            height: 100%;
+            border-radius: 20px;
+            padding: 10px 20px;
+        }
+
+        &__textarea::-webkit-scrollbar {
+            width: 0;
+        }
+
+        &__textarea:focus {
+            outline-width: 0;
+        }
+    }
+}

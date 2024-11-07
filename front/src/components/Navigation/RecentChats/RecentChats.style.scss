@@ -1,0 +1,119 @@
+@use 'sass:color';
+@use '@/values' as *;
+
+.recent-chats {
+  &__list {
+    margin-top: 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    // Забагованно, надо фиксить
+    // max-height: 320px;
+    // overflow-y: auto; 
+
+    &.has-scroll {
+        padding-right: 7px;
+    }
+
+    &::-webkit-scrollbar {
+    width: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: color.adjust($mainBackground, $lightness: -5%);
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: color.adjust($mainBackground, $lightness: 10%);
+        border-radius: 10px;
+        border: 3px solid color.adjust($mainBackground, $lightness: -5%);
+
+        &:hover {
+        background-color: color.adjust($mainBackground, $lightness: 15%);
+        }
+    }
+
+    
+    scrollbar-width: thin;
+    scrollbar-color: color.adjust($mainBackground, $lightness: 10%) color.adjust($mainBackground, $lightness: -5%);
+
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px;
+      position: relative;
+      background-color: $mainBackground;
+      border: 2px solid $newChatBorder;
+      border-radius: 10px;
+      line-height: 25px;
+      transition: all .2s linear;
+
+      &:hover {
+        background-color: $newChatBorder;
+      }
+    }
+
+    &__chat {
+      width: 75%;
+      text-decoration: none;
+      color: inherit;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &__text {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    &__menu-button {
+      display: flex;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 5px;
+      color: $fontColor;
+      transition: all .2s linear;
+
+      &:hover {
+        background-color: $mainBackground;
+      }
+    }
+
+    &__menu {
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      z-index: 10;
+
+      &__item {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+
+        span {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+}

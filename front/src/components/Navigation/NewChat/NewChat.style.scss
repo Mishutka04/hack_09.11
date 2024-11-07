@@ -1,0 +1,29 @@
+@use '@/values';
+
+.nav__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    background-color: values.$mainBackground;
+    border-radius: 10px;
+    border: 2px solid values.$newChatBorder;
+    cursor: pointer;
+    user-select: none;
+    transition: all .2s linear;
+
+    &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.nav__item:hover {
+    background-color: values.$newChatBorder;
+}
+
+.new-chat {
+    font-family: 'Apercu pro';
+    line-height: 15px;
+    font-weight: 600;
+}

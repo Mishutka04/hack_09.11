@@ -1,0 +1,15 @@
+.all-tables__table {
+    &__row {
+        &__cell {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            border-right: 1px solid #e0e6ed;
+            color: black;
+      
+            &:last-child {
+              border-right: none;
+            }
+        }
+    }
+}

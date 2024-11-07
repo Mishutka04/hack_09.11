@@ -1,0 +1,9 @@
+@use '@/values';
+
+.tabs__list {
+    display: flex;
+    gap: 20px;
+    background-color: values.$panelBackground;
+    border-radius: 20px;
+    padding: 10px;
+}

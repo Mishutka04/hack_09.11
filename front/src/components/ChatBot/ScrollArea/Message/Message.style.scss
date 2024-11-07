@@ -1,0 +1,46 @@
+.message-block {
+    display: grid;
+    grid-template-columns: 25px auto;
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.bot {
+    &__buttons {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+        grid-column: 2;
+        margin-left: 20px;
+    }
+
+    &__button {
+        font-family: 'Apercu Pro';
+        line-height: 15px;
+        border-radius: 5px;
+        border: 0;
+        cursor: pointer;
+        padding: 3px 10px;
+        transition: all .2s linear;
+
+        &:hover {
+            background-color: black;
+            color: #fff;
+        }
+    }
+}
+
+.message-text {
+    font-size: 18px;
+    line-height: 25px;
+    margin-left: 20px;
+    text-align: justify;
+}
+
+.message-icon {
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+}

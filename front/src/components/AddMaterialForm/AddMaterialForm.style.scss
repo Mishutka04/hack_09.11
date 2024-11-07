@@ -1,0 +1,26 @@
+@use '@/values';
+
+.add-material {
+    &__form {
+        width: 55%;
+        height: 90%;
+        padding: 10px 30px;
+        border-radius: 20px;
+        background-color: values.$panelBackground;
+        position: relative;
+
+        &__title {
+            margin-bottom: 20px;
+        }
+        
+        &__wrapper {
+            display: grid;
+            grid-template-columns: 40% 55%;
+            gap: 20px;
+        }
+    }
+
+    &__form label {
+        font-size: 18px;
+    }
+}

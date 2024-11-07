@@ -1,0 +1,14 @@
+@use '../Table.style.scss';
+
+.all-tables__table {
+    &__row {
+        display: flex;
+        &:nth-child(even) {
+          background-color: #f9fafb;
+        }
+    
+        &:hover {
+          background-color: #eaf3ff;
+        }
+    }
+}

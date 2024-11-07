@@ -1,0 +1,9 @@
+.app-wrapper {
+    display: flex;
+}
+
+.app-wrapper__main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}

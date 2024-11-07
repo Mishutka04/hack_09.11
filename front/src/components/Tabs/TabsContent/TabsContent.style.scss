@@ -1,0 +1,9 @@
+@use '@/values';
+
+.tabs__content {
+    height: 520px;
+    margin-top: 20px;
+    background-color: values.$panelBackground;
+    border-radius: 20px;
+    padding: 30px;
+}
