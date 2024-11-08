@@ -1,18 +1,23 @@
-FROM node:18.13.0-alpine AS builder
+# Используем базовый образ Node.js
+FROM node:16-alpine
 
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-COPY package*.json .
+# Копируем package.json и package-lock.json для установки зависимостей
+COPY package*.json ./
 
+# Устанавливаем зависимости
 RUN npm install
 
+# Копируем все файлы проекта в контейнер
 COPY . .
 
-RUN npm run build
+FROM nginx:stable-alpine
 
-FROM nginx:1.21.0-alpine
+COPY --from=build /dist /usr/share/nginx/html
+COPY --from=build nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 3000
+CMD [ "nginx", "-g", "daemon off;" ]
 
-COPY --from=builder /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["tail", "-f", "/dev/null"]
