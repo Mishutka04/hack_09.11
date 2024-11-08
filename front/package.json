@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -15,7 +15,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-responsive": "^10.0.0",
-    "react-router-dom": "^6.27.0",
+    "react-router-dom": "^6.28.0",
+    "sass-migrator": "^2.2.1",
     "uuid4": "^2.0.3"
   },
   "devDependencies": {
@@ -28,7 +29,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
-    "sass-embedded": "^1.80.5",
+    "sass-embedded": "^1.80.6",
     "vite": "^5.4.10"
   }
 }
