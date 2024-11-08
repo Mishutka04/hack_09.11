@@ -1,19 +1,13 @@
-# Используем базовый образ Node.js
-FROM node:16-alpine
+FROM node:alpine as build
 
-# Устанавливаем рабочую директорию
-WORKDIR /app
-
-# Копируем package.json и package-lock.json для установки зависимостей
-COPY package*.json ./
-
-# Устанавливаем зависимости
+COPY package.json package.json
 RUN npm install
-RUN npm install sass-embedded node-sass sass-migrator react-responsive react-router-dom uuid4
-# Копируем все файлы проекта в контейнер
 COPY . .
+RUN npm run build
 
-# # Запускаем приложение в режиме разработки
-CMD ["npm", "run", "dev"]
+FROM nginx:stable-alpine
 
-# CMD ["tail", "-f", "/dev/null"]
+COPY --from=build /dist /usr/share/nginx/html
+COPY --from=build nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 3000
+CMD [ "nginx", "-g", "daemon off;" ]
