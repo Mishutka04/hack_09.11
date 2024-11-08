@@ -1,5 +1,4 @@
-networks:
-  dev:
+version: '3.3'
 
 services:
   nginx:
@@ -9,13 +8,16 @@ services:
       - "443:443"
     volumes:
       - './nginx.conf:/etc/nginx/nginx.conf'
-      - '/etc/letsencrypt:/etc/letsencrypt'
+    networks:
+      - dev
     depends_on:
       - frontend
-    networks:
-      - dev
+
   frontend:
     build:
-      context: ./front
+      context: ./front  # Path to directory with Dockerfile for Vue.js
     networks:
       - dev
+
+networks:
+  dev:
