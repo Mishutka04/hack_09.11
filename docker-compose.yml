@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.3'  # Change this to a supported version
 
 services:
   # web:
@@ -10,11 +10,24 @@ services:
 
   #   environment:
   #     - PYTHONUNBUFFERED=1
-
-  frontend:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+    volumes:
+      - './nginx.conf:/etc/nginx/nginx.conf'
+    networks:
+      - dev
+  frontend: 
     build:
       context: ./front  # Путь к директории с Dockerfile для Vue.js
       dockerfile: Dockerfile
     ports:
       - "8080:5173"
+    networks:
+      - dev
 
+networks:
+  dev:
