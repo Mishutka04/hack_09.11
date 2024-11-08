@@ -1,5 +1,5 @@
 # Используем базовый образ Node.js
-FROM node:16-alpine
+FROM node:16-alpine AS build  # Define the build stage
 
 # Устанавливаем рабочую директорию
 WORKDIR /app
@@ -13,11 +13,15 @@ RUN npm install
 # Копируем все файлы проекта в контейнер
 COPY . .
 
+# Build your application (if applicable)
+RUN npm run build  # Add this line if you need to build your app
+
+# Используем базовый образ Nginx для сервировки
 FROM nginx:stable-alpine
 
-COPY --from=build /dist /usr/share/nginx/html
-COPY --from=build nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 3000
-CMD [ "nginx", "-g", "daemon off;" ]
+# Копируем скомпилированные файлы из стадии сборки
+COPY --from=build /app/dist /usr/share/nginx/html 
+COPY --from=build /app/nginx.conf /etc/nginx/conf.d/default.conf  
 
-# CMD ["tail", "-f", "/dev/null"]
+EXPOSE 3000
+CMD ["nginx", "-g", "daemon off;"]
