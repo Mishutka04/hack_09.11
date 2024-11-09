@@ -16,6 +16,7 @@ export const ChatProvider = ({ children }) => {
   const [autoSendMessage, setAutoSendMessage] = useState('');
   const [favorites, setFavorites] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -37,17 +38,20 @@ export const ChatProvider = ({ children }) => {
       if (storedCurrentChatId) {
         setCurrentChatId(storedCurrentChatId);
       }
+      const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+      setFavorites(storedFavorites);
     }
   }, []);
 
   useEffect(() => {
     if (isAuthenticated) {
       localStorage.setItem('chats', JSON.stringify(chats));
+      localStorage.setItem('favorites', JSON.stringify(favorites));
       if (currentChatId) {
         localStorage.setItem('currentChatId', currentChatId);
       }
     }
-  }, [chats, currentChatId, isAuthenticated]);
+  }, [chats, currentChatId, favorites, isAuthenticated]);
 
   const hasEmptyChat = useMemo(() => {
     return chats.some(chat => chat.messages.length === 0);
@@ -114,9 +118,11 @@ export const ChatProvider = ({ children }) => {
     setIsAuthenticated(false);
     setChats([]);
     setCurrentChatId(null);
+    setFavorites([]);
     localStorage.removeItem('isAuthenticated');
     localStorage.removeItem('chats');
     localStorage.removeItem('currentChatId');
+    localStorage.removeItem('favorites');
     navigate('/');
   };
 
@@ -156,12 +162,27 @@ export const ChatProvider = ({ children }) => {
     );
   };
 
+  const isFavorite = (messageId) => {
+    return favorites.some(fav => fav.id === messageId);
+  };
+
+  const getChatIdForMessage = (messageId) => {
+    for (const chat of chats) {
+      if (chat.messages.some(msg => msg.id === messageId)) {
+        console.log(`chat id is ${chat.id}`)
+        return chat.id;
+      }
+    }
+    return null;
+  };
+
   return (
     <ChatContext.Provider value={{ 
       chats, 
       currentChatId, 
       autoSendMessage,
       favorites,
+      searchQuery,
       createNewChat, 
       addMessageToChat,
       deleteChat,
@@ -176,7 +197,10 @@ export const ChatProvider = ({ children }) => {
       hasEmptyChat,
       isAuthenticated,
       login,
-      logout
+      logout,
+      isFavorite,
+      getChatIdForMessage,
+      setSearchQuery
     }}>
       {children}
     </ChatContext.Provider>

@@ -1,19 +1,15 @@
-import { useState } from 'react';
 import { useChat } from '@/ChatContext';
 import './Message.style.scss';
 
 export const Message = ({text, isUser, id}) => {
-  const { addToFavorites, removeFromFavorites, favorites, copyMessage, regenerateMessage, updateMessageRating } = useChat();
-
-  const [isFavorite, setIsFavorite] = useState(favorites.some(fav => fav.id === id));
+  const { addToFavorites, removeFromFavorites, isFavorite, copyMessage, regenerateMessage, updateMessageRating } = useChat();
 
   const toggleFavorite = () => {
-    if (isFavorite) {
+    if (isFavorite(id)) {
       removeFromFavorites(id);
     } else {
       addToFavorites({ id, text });
     }
-    setIsFavorite(!isFavorite);
   };
 
   return (
@@ -39,7 +35,7 @@ export const Message = ({text, isUser, id}) => {
             Dislike
           </button>
           <button onClick={toggleFavorite} className="bot__button favorite-button">
-            {isFavorite ? '★' : '☆'}
+            {isFavorite(id) ? '★' : '☆'}
           </button>
         </div>
       )}

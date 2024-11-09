@@ -1,0 +1,176 @@
+@use 'sass:color';
+@use '@/values' as *;
+
+.favorite-materials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: $fontColor;
+  font-family: 'Apercu Pro', sans-serif;
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  &__search {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: $mainBackground;
+    border: 1px solid $newChatBorder;
+    border-radius: 5px;
+    color: $fontColor;
+    font-family: 'Apercu Pro';
+
+    &:focus {
+        outline-width: 0;
+    }
+  }
+
+  &__table-container {
+    flex-grow: 1;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 12px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: color.adjust($mainBackground, $lightness: -5%);
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: color.adjust($mainBackground, $lightness: 10%);
+      border-radius: 10px;
+      border: 3px solid color.adjust($mainBackground, $lightness: -5%);
+
+      &:hover {
+        background-color: color.adjust($mainBackground, $lightness: 15%);
+      }
+    }
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  &__th {
+    position: sticky;
+    top: 0;
+    background-color: $panelBackground;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid $newChatBorder;
+    z-index: 1;
+
+    &--message {
+      width: 70%;
+    }
+
+    &--actions {
+      width: 30%;
+    }
+  }
+}
+
+.favorite-item {
+  &__message-cell {
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 2px solid $newChatBorder;
+  }
+
+  &__message-wrapper {
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+
+    &.expanded {
+      max-height: none;
+    }
+  }
+
+  &__message {
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .expanded & {
+      display: block;
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
+  }
+
+  &__expand {
+    margin-top: 10px;
+    background: none;
+    border: none;
+    color: color.adjust($fontColor, $lightness: 20%);
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: 'Apercu Pro', sans-serif;
+  }
+
+  &__actions-cell {
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 2px solid $newChatBorder;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__goto,
+  &__remove {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Apercu Pro', sans-serif;
+  }
+
+  &__goto {
+    background-color: $mainBackground;
+    color: $fontColor;
+
+    &:hover {
+      background-color: color.adjust($mainBackground, $lightness: 10%);
+    }
+  }
+
+  &__remove {
+    background-color: #d32f2f;
+    color: $fontColor;
+
+    &:hover {
+      background-color: color.adjust(#d32f2f, $lightness: 10%);
+    }
+  }
+}
+
+.tabs__content {
+  height: 520px;
+  margin-top: 20px;
+  background-color: $panelBackground;
+  border-radius: 20px;
+  padding: 30px;
+  overflow: hidden;
+
+  .favorite-materials {
+    height: 100%;
+  }
+}
