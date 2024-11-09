@@ -12,14 +12,9 @@ export const TabsList = ({ activeTabIndex, onTabSelect }) => {
         onClick={() => onTabSelect(0)} 
       />
       <TabsTrigger 
-        text="Избранные материалы" 
+        text="Избранные поиски" 
         isActive={activeTabIndex === 1} 
         onClick={() => onTabSelect(1)} 
-      />
-      <TabsTrigger 
-        text="Сохранённые поиски" 
-        isActive={activeTabIndex === 2} 
-        onClick={() => onTabSelect(2)} 
       />
     </div>
   );

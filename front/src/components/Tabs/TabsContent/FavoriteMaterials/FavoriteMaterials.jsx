@@ -39,7 +39,7 @@ export const FavoriteMaterials = () => {
 
   return (
     <div className="favorite-materials">
-      <h2 className="favorite-materials__title">Избранные материалы</h2>
+      <h2 className="favorite-materials__title">Избранные поиски</h2>
       <input
         type="text"
         placeholder="Поиск в избранном..."
