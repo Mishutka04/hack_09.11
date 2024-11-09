@@ -2,6 +2,9 @@
 
 .add-material {
     &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         width: 55%;
         height: 90%;
         padding: 10px 30px;
@@ -17,6 +20,15 @@
             display: grid;
             grid-template-columns: 40% 55%;
             gap: 20px;
+        }
+
+        &__action-btns {
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            gap: 20px;
+            margin-bottom: 20px;
         }
     }
 

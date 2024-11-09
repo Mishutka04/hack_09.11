@@ -19,7 +19,16 @@ export const AddMaterialForm = () => {
         </div>
 
         <FormLinkOrFile />
-        <FormSubmitButton />
+        <div className="add-material__form__action-btns">
+          <FormSubmitButton 
+            btnType={'submit'}
+            text={'Отправить'}
+          />
+          <FormSubmitButton 
+            btnType={'reset'}
+            text={'Очистить'}
+          />
+        </div>
     </form>
   )
 }
