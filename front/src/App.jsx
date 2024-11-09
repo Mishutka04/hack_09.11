@@ -1,4 +1,5 @@
 import './App.style.scss';
+import { useMediaQuery } from 'react-responsive';
 import { ChatProvider, useChat } from './ChatContext';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { LeftMenu } from '@layout/LeftMenu/LeftMenu';

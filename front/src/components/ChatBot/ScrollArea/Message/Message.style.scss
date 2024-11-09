@@ -19,8 +19,8 @@
 
     &__button {
         font-family: 'Roboto';
-        background-color: $panelBackground;
-        color: $fontColor;
+        background-color: $fontColor;
+        color: $panelBackground;
         line-height: 15px;
         border-radius: 5px;
         border: 0;
@@ -30,6 +30,7 @@
 
         &:hover {
             background-color: color.adjust($panelBackground, $lightness: -2%);
+            color: $fontColor;
         }
     }
 }

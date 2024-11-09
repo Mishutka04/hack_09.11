@@ -28,13 +28,21 @@
     }
   }
 
-  
   scrollbar-width: thin;
   scrollbar-color: color.adjust($mainBackground, $lightness: 10%) color.adjust($mainBackground, $lightness: -5%);
 
-  
   &__wrapper {
     width: 50%; 
-    word-break: break-all;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+}
+
+@media (max-width: 1045px) {
+  .chat-bot__scroll-area {
+    &__wrapper {
+      width: 80%;
+    }
   }
 }
