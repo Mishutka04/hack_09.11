@@ -35,7 +35,18 @@
     width: 50%; 
     word-wrap: break-word;
     overflow-wrap: break-word;
+    word-break: break-word;
     hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    
+    // Обеспечивает перенос для очень длинных слов
+    & * {
+      max-width: 100%;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-word;
+    }
   }
 }
 
