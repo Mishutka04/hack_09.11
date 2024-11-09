@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   color: $fontColor;
-  font-family: 'Apercu Pro', sans-serif;
+  font-family: 'Roboto', sans-serif;
 
   &__title {
     margin-bottom: 20px;
@@ -22,7 +22,7 @@
     border: 1px solid $newChatBorder;
     border-radius: 5px;
     color: $fontColor;
-    font-family: 'Apercu Pro';
+    font-family: 'Roboto';
 
     &:focus {
         outline-width: 0;
@@ -118,7 +118,7 @@
     color: color.adjust($fontColor, $lightness: 20%);
     cursor: pointer;
     text-decoration: underline;
-    font-family: 'Apercu Pro', sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
   &__actions-cell {
@@ -140,7 +140,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    font-family: 'Apercu Pro', sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
   &__goto {
