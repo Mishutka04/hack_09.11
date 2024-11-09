@@ -13,7 +13,6 @@ export const UserBlock = () => {
     <div className="user-block">
       <div className="user-info">
         <div className="user-avatar">
-          {/* Здесь может быть аватар пользователя */}
           <div className="avatar-placeholder">U</div>
         </div>
         <span className="user-name">Demo User</span>

@@ -1,3 +1,5 @@
+@use '@/values' as *;
+
 .user-block {
   padding: 12px;
   border-top: 1px solid #e0e0e0;
@@ -48,4 +50,9 @@
       margin-left: 8px;
     }
   }
+}
+
+.logout-button {
+  font-family: 'Apercu Pro';
+  line-height: 10px;
 }

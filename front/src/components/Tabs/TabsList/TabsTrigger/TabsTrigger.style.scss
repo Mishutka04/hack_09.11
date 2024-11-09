@@ -1,18 +1,21 @@
-@use '@/values';
+@use '@/values' as *;
+@use 'sass:color';
 
 .tabs__list__trigger {
     padding: 10px;
     border-radius: 10px;
-    background-color: values.$newChatBorder;
+    background-color: $newChatBorder;
     transition: all .2s linear;
     line-height: 15px;
     cursor: pointer;
 }
 
 .tabs__list__trigger:hover {
-    background-color: #000;
+    background-color: $fontColor;
+    color: $panelBackground;
 }
 
 .active-tab {
-    background-color: #000;
+    background-color: $fontColor;
+    color: $panelBackground;
 }

@@ -1,3 +1,6 @@
+@use 'sass:color';
+@use '@/values' as *;
+
 .message-block {
     display: grid;
     grid-template-columns: 25px auto;
@@ -16,16 +19,17 @@
 
     &__button {
         font-family: 'Apercu Pro';
+        background-color: $panelBackground;
+        color: $fontColor;
         line-height: 15px;
         border-radius: 5px;
         border: 0;
         cursor: pointer;
-        padding: 3px 10px;
+        padding: 4px 10px;
         transition: all .2s linear;
 
         &:hover {
-            background-color: black;
-            color: #fff;
+            background-color: color.adjust($panelBackground, $lightness: -2%);
         }
     }
 }

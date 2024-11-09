@@ -1,3 +1,6 @@
+@use '@/values' as *;
+@use 'sass:color';
+
 .add-material {
     &__form {
         &__link-or-file {
@@ -13,7 +16,7 @@
                 display: flex;
                 justify-content: space-between;
                 width: 50%;
-                background-color: black;
+                background-color: color.adjust($panelBackground, $lightness: 5%);
                 border-radius: 20px;
                 padding: 10px 20px;
             }
@@ -23,7 +26,7 @@
                 justify-content: center;
                 align-items: center;
                 width: 45%;
-                background-color: antiquewhite;
+                background-color: #fff;
                 border-radius: 20px;
                 color: black;
                 padding: 5px 10px;

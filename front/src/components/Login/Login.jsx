@@ -15,19 +15,20 @@ export const Login = () => {
     if (login(username, password)) {
       navigate('/');
     } else {
-      setError('Invalid username or password');
+      setError('Неверное имя пользователя или пароль');
     }
   };
 
   return (
     <div className="login-page">
       <div className="login-container">
-        <h1>Welcome to ChatBot</h1>
+        <h1>Media Wise x BitcoinBandits</h1>
+        <h2>Добро пожаловать в Чат-бот</h2>
         <form onSubmit={handleSubmit} className="login-form">
-          <h2>Login</h2>
+          <h2>Авторизация</h2>
           {error && <p className="error">{error}</p>}
           <div>
-            <label htmlFor="username">Username:</label>
+            <label htmlFor="username">Логин:</label>
             <input
               type="text"
               id="username"
@@ -37,7 +38,7 @@ export const Login = () => {
             />
           </div>
           <div>
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password">Пароль:</label>
             <input
               type="password"
               id="password"
@@ -46,7 +47,7 @@ export const Login = () => {
               required
             />
           </div>
-          <button type="submit">Login</button>
+          <button type="submit">Войти</button>
         </form>
       </div>
     </div>

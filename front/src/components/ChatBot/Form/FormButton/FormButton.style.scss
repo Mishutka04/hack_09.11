@@ -1,8 +1,22 @@
+@use 'sass:color';
+@use '@/values' as *;
+
 .form__button {
     width: 40px;
     height: 40px;
     border: 0;
-    margin-right: 20px;
-    border-radius: 50%;
+    background-color: color.adjust($panelBackground, $lightness: 10%);
+    margin-right: 10px;
+    border-radius: 10px;
     cursor: pointer;
+    transition: all .2s linear;
+
+    &__img {
+        width: 20px;
+        height: 20px;
+    }
+
+    &:hover {
+        background-color: color.adjust($panelBackground, $lightness: -5%);
+    }
 }
